@@ -1,11 +1,202 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
-
+//Área onde variáveis utilizadas serão definidas
 int main() {
+    char cidade1[30], cidade2[30];
+    int codigo1, codigo2, pts_turisticos1, pts_turisticos2;
+    long int populacao1, populacao2;
+    float area1, area2, PIB1, PIB2, densidade1, densidade2, PIBperCapita1, PIBperCapita2;
+
+//Área para o usuário inserir os dados da carta 1
+    printf("Insira os dados referentes à Carta 1\n");
+
+    printf("Insira o nome da cidade: ");
+    scanf(" %[^\n]s", cidade1);
+
+    printf("Insira o código da cidade: ");
+    scanf("%d", &codigo1);
+
+    printf("Insira o tamanho da população: ");
+    scanf(" %ld", &populacao1);
+
+    printf("Insira o tamanho da área em metros quadrados: ");
+    scanf("%f", &area1);
+
+    printf("Insira o PIB da cidade: ");
+    scanf("%f", &PIB1);
+
+    printf("Insira a quantidade de pontos turísticos na cidade: ");
+    scanf("%d", &pts_turisticos1);
+
+//Área onde será exibido na tela os dados da carta 1 que o usuário inseriu
+    printf("\nDados referentes à Carta 1\n");
+    printf("Cidade: %s\n", cidade1);
+    printf("Código da cidade: %d\n", codigo1);
+    printf("Tamanho da população: %ld pessoas\n", populacao1);
+    printf("Tamanho da área: %.2f m²\n", area1);
+    printf("PIB da cidade: R$ %.2f\n", PIB1);
+    printf("Quantidade de pontos turísticos: %d pontos\n", pts_turisticos1);
+
+
+//Área onde os cálculos referentes aos dados inseridos da carta 1 anteriormente serão mostrados
+    densidade1 = (float)populacao1 / area1;
+    printf("A densidade populacional é: %.2f hab/m²\n", densidade1);
+
+    PIBperCapita1 = (float)PIB1 / populacao1;
+    printf("O PIB per capita é: R$ %.2f\n", PIBperCapita1);
+
+//Cálculo do Super Poder da Carta 1 (Soma de todas as propriedades)
+    float poder1 = populacao1 + pts_turisticos1 + area1 + PIB1 + densidade1 + PIBperCapita1;
+    printf("Super Poder desta carta: %.2f\n", poder1);
+
+
+//Área para o usuário inserir os dados da carta 2
+    printf("\nInsira os dados referentes à Carta 2\n");
+
+    printf("Insira o nome da cidade: ");
+    scanf(" %[^\n]s", cidade2);
+
+    printf("Insira o código da cidade: ");
+    scanf("%d", &codigo2);
+
+    printf("Insira o tamanho da população: ");
+    scanf(" %ld", &populacao2);
+
+    printf("Insira o tamanho da área em metros quadrados: ");
+    scanf("%f", &area2);
+
+    printf("Insira o PIB da cidade: ");
+    scanf("%f", &PIB2);
+
+    printf("Insira a quantidade de pontos turísticos na cidade: ");
+    scanf("%d", &pts_turisticos2);
+
+//Área onde será exibido na tela os dados da carta 1 que o usuário inseriu
+    printf("\nDados referentes à Carta 2\n");
+    printf("Cidade: %s\n", cidade2);
+    printf("Código da cidade: %d\n", codigo2);
+    printf("Tamanho da população: %ld pessoas\n", populacao2);
+    printf("Tamanho da área: %.2f m²\n", area2);
+    printf("PIB da cidade: R$ %.2f\n", PIB2);
+    printf("Quantidade de pontos turísticos: %d pontos\n", pts_turisticos2);
+
+
+//Área onde os cálculos referentes aos dados inseridos da carta 1 anteriormente serão mostrados
+    densidade2 = (float)populacao2 / area2;
+    printf("A densidade populacional é: %.2f hab/m²\n", densidade2);
+
+    PIBperCapita2 = (float)PIB2 / populacao2;
+    printf("O PIB per capita é: R$ %.2f\n", PIBperCapita2);
+
+
+//Cálculo do Super Poder da Carta 2 (Soma de todas as propriedades)
+    float poder2 = populacao2 + pts_turisticos2 + area2 + PIB2 + densidade2 + PIBperCapita2;
+    printf("Super Poder desta carta: %.2f\n", poder2);
+
+
+//Área onde os dados serão comparados para eleger o vencedor
+    printf("\n A cidade vencedora em cada categoria: \n");
+
+    printf("\nPopulação: \n");
+    if (populacao1 > populacao2) {
+        printf("%s tem a população maior. \n", cidade1);
+        printf("%s é a cidade vencedora!\n", cidade1);
+    } else {
+        if (populacao1 == populacao2) {
+            printf("Ambas as cidades possuem a mesma população. É um empate!\n");
+        } else {
+            printf("%s tem a população maior. \n", cidade2);
+            printf("%s é a cidade vencedora!\n", cidade2);
+            }
+
+         }
+
+    printf("\n Área:\n");
+    if (area1 > area2) {
+        printf("%s tem a maior área.\n", cidade1);
+        printf("%s é a cidade vencedora!\n", cidade1);
+    } else { 
+        if (area1 == area2) {
+            printf("Ambas as cidades possuem a mesma área. É um empate!\n");
+        } else {
+            printf("%s tem a maior área.\n", cidade2);
+            printf("%s é a cidade vencedora!\n", cidade2);
+            }
+        }
+
+    printf("\n Pontos turísticos:\n");
+    if (pts_turisticos1 > pts_turisticos2) {
+        printf("%s possui mais pontos turísticos. \n", cidade1);
+        printf("%s é a cidade vencedora!\n", cidade1);
+    } else {
+            if (pts_turisticos1 == pts_turisticos2) {
+                printf("Ambas as cidades possuem o mesmo número de pontos turísticos. É um empate!\n");
+            } else {
+                printf("%s possui mais pontos turísticos. \n", cidade2);
+                printf("%s é a cidade vencedora!\n", cidade2);
+            }
+        }
+
+    printf("\n PIB:\n");
+    if (PIB1 > PIB2) {
+        printf("%s possui o maior PIB.\n", cidade1);
+        printf("%s é a cidade vencedora!\n", cidade1);
+    } else {
+            if (PIB1 == PIB2) {
+                printf("Ambas as cidades possuem o mesmo PIB. É um empate!\n");
+            } else {
+                printf("%s possui o maior PIB.\n", cidade2);
+                printf("%s é a cidade vencedora!\n", cidade2);
+            }
+        }
+
+    printf("\n Densidade Populacional:\n");
+    if (densidade1 > densidade2) {
+        printf("%s possui a menor densidade populacional.\n", cidade2);
+        printf("%s é a cidade vencedora!\n", cidade2);
+    } else {
+            if (densidade1 == densidade2) {
+                printf("Ambas as cidades possuem a mesma densidade populacional. É um empate!\n");
+            } else {
+                printf("%s possui a menor densidade populacional.\n", cidade1);
+                printf("%s é a cidade vencedora!\n", cidade1);
+            }
+        }
+
+    printf("\n PIB per Capita:\n");
+    if (PIBperCapita1 > PIBperCapita2) {
+        printf("%s possui o maior PIB.\n", cidade1);
+        printf("%s é a cidade vencedora!\n", cidade1);
+    } else {
+            if (PIBperCapita1 == PIBperCapita2) {
+                printf("Ambas as cidades possuem o mesmo PIB per Capita. É um empate!\n");
+            } else {
+                printf("%s possui o maior PIB.\n", cidade2);
+                printf("%s é a cidade vencedora!\n", cidade2);
+            }
+        }
+
+    printf("\n Super Poder:\n");
+    if (poder1 > poder2) {
+        printf("%s possui o maior Super Poder.\n", cidade1);
+        printf("%s é a cidade vencedora!\n", cidade1);
+    } else {
+            if (poder1 == poder2) {
+                printf("Ambas as cidades possuem o mesmo valor de Super Poder. É um empate!\n");
+            } else {
+                printf("%s possui o maior Super Poder.\n", cidade2);
+                printf("%s é a cidade vencedora!\n", cidade2);
+            }
+
+         }
+
+
+
+    return 0;
+}
+
+
+
     // Definição das variáveis para armazenar as propriedades das cidades
     // Você pode utilizar o código do primeiro desafio
 
@@ -38,6 +229,3 @@ int main() {
 
     // Exemplo:
     // printf("A cidade vencedora é: %s\n", cidadeVencedora);
-
-    return 0;
-}
